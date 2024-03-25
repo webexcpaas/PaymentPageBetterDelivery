@@ -1,1 +1,101 @@
-Hello World
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Payment Page</title>
+  <!-- add the font awesome link here -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" type="text/css" />
+  <link href="https://fonts.googleapis.com/css2?family=Spartan:wght@300;400;600;700;800;900;&display=swap" rel="stylesheet">
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <link rel="icon"href="https://awsprodemailassets.s3.amazonaws.com/0ae1dbc4-e5aa-46c3-8aed-55995aabf5b7/bdFavicon_7802860722580118.png" type="image/x-icon!">
+</head>
+<body>
+  <!-- HEADER -->
+    <header>
+      <nav class="navMenu" id="myNavMenu">
+      <a href="index.html"><img id="logo" src="https://awsprodemailassets.s3.amazonaws.com/0ae1dbc4-e5aa-46c3-8aed-55995aabf5b7/betterDeliveryLogo_7802873248712428.png" alt="logo"><img id="smallLogo" src="https://awsprodemailassets.s3.amazonaws.com/0ae1dbc4-e5aa-46c3-8aed-55995aabf5b7/bdFavicon_7802860722580118.png" alt="logo"></a>
+    </nav>
+    </header>
+
+		<!-- MAIN BODY CONTAINER -->
+    <div id="container">
+    <!-- WHEN NO ORDER IS QUERIED -->
+    <div id="defaultDiv">
+      <div id="cardOverlay">
+        <div class="group">
+          <img class="heroPic" src="https://awsprodemailassets.s3.amazonaws.com/0ae1dbc4-e5aa-46c3-8aed-55995aabf5b7/pexels-kampus-production-7843982_7804894427658780.jpg" alt="Hero basket image">
+          <div class="card">
+            <img src="https://awsprodemailassets.s3.amazonaws.com/0ae1dbc4-e5aa-46c3-8aed-55995aabf5b7/box_6728771386685526.png" alt="Customs delivery" style="width:38%;margin: 32px;">
+            <p><b>Consignment #cisco12345</b><hr style="height:6px;border:none;background-color:#27A800">Charge: €<span id="charge"></span><span id="noCharge" style="display:none;">74.21</span></p>
+            <p id="prePaid">&nbsp;<a href="#" id="form-enter">Pay</a></p>
+            <p id="paid" style="background-color: #007C39;color: whitesmoke;font-weight: 600;width: 100%;padding:22px;margin:6px 0;display:none;">Paid</p>
+            <br>
+          </div>
+        </div>
+      </div>
+
+      <div class="clear" style="height: 60px;"></div>
+      <br>
+      
+      <div id="preOrder">
+        <h2>Customs order</h2>
+        <div class="text">
+          <p>If you have questions related to your Customs charge, please use the WhatsApp button or QR code below to ask your questions.</p>
+        </div>
+        <div class="row">
+          <div class="column">
+            <a id="wabutton" href="https://wa.me/447942207637/?text=customsFAQ" target="_blank"><span class="mobhide">WhatsApp&nbsp</span><b><i class="fab fa-whatsapp"></i></b></a>
+          </div>
+          <div class="column2">
+            <img src="https://quickchart.io/qr?text=https://wa.me/447942207637/?text=customsFAQ&size=200" alt="WhatsApp QR Code" style="width:200px;height:200px;">
+          </div>
+			  </div>
+      </div>
+      <div id="complete-message" style="display:none;">
+        <h2>Thank you</h2>
+        <div class="text">
+          <p>Thank you, your payment has been received.</p>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="clear"></div>
+    <br>
+
+
+  </div>	
+  <footer>
+    <span>
+      <p>Webex CPaaS Team &nbsp
+      <a href="https://demolaunchpad.imisolutions.repl.co/" target="_blank"><i class="fas fa-rocket"></i></a>
+      &nbsp
+      <a href="https://imimobile.com/" target="_blank"><i class="fas fa-globe"></i></a>
+      &nbsp
+      <a href="https://www.linkedin.com/company/imimobile/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+      </p>
+    </span>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+  <script src="script.js"></script>
+
+  <script>
+
+//Create function which takes a string and creates a json object from it, this is query string param style. 
+function parseQueryString (queryString) {
+  var  newQueryString= queryString.replace('?','');    
+  var parsedString = '';   
+
+  console.log(queryString);
+  if(queryString.length > 2){
+    parsedString = JSON.parse('{"' + decodeURI(newQueryString).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g,'":"') + '"}');}  
+  return parsedString;
+}
+
+  </script>
+</body>
+</html>
